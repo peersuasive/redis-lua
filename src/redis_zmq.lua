@@ -763,10 +763,12 @@ local function connect_tcp(socket, parameters)
         socket:settimeout(parameters.timeout, 't')
     end
 
-    local ok, err = socket:connect("tcp://"..host..":"..port)
+    local ok, err = socket:connect(host, port)
     if not ok then
         redis.error('could not connect to '..host..':'..port..' ['..err..']')
     end
+    -- Nagle algo's disabled by default with zmq
+    --socket:setoption('tcp-nodelay', parameters.tcp_nodelay)
     return socket
 end
 
@@ -786,17 +788,17 @@ local function create_connection(parameters)
     local perform_connection, socket
 
     if parameters.scheme == 'unix' then
-        perform_connection, socket = connect_unix, require"zsocket"()
+        perform_connection, socket = connect_unix, require('zsocket').unix
         assert(socket, 'your build of LuaSocket does not support UNIX domain sockets')
     else
         if parameters.scheme then
             local scheme = parameters.scheme
             assert(scheme == 'redis' or scheme == 'tcp', 'invalid scheme: '..scheme)
         end
-        perform_connection, socket = connect_tcp, require"zsocket"()
+        perform_connection, socket = connect_tcp, require('zsocket').tcp
     end
 
-    return perform_connection(socket, parameters)
+    return perform_connection(socket(), parameters)
 end
 
 -- ############################################################################

@@ -178,6 +178,8 @@ uptime_in_days => 0
 
 [Leo Ponomarev](http://github.com/slact/)
 
+[Christophe Berbizier, ømq)(mailto:cberbizier@peersuasive.com)
+
 ## License ##
 
 The code for redis-lua is distributed under the terms of the MIT/X11 license (see LICENSE).

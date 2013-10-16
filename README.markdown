@@ -157,7 +157,7 @@ uptime_in_days => 0
 ## Dependencies ##
 
 - [Lua 5.1 and 5.2](http://www.lua.org/) or [LuaJIT 2.0](http://luajit.org/)
-- [LuaSocket 2.0](http://www.tecgraf.puc-rio.br/~diego/professional/luasocket/)
+- [ØMQ 4.X](http://zeromq.org/)
 - [Telescope](http://telescope.luaforge.net/) (required to run the test suite)
 
 ## Links ##

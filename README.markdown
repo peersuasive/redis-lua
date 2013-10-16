@@ -185,3 +185,10 @@ uptime_in_days => 0
 ## License ##
 
 The code for redis-lua is distributed under the terms of the MIT/X11 license (see LICENSE).
+
+zsocket module is licensed under the terms of the GPLv3 license ([GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)).
+
+socket.url/LuaSocket is licensed under the terms of the MIT license ([LuaSocket](http://w3.impa.br/~diego/software/luasocket/) to get full sources).
+
+
+

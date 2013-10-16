@@ -787,14 +787,14 @@ local function create_connection(parameters)
     local perform_connection, socket
 
     if parameters.scheme == 'unix' then
-        perform_connection, socket = connect_unix, require('socket.unix')
+        perform_connection, socket = connect_unix, require('zsocket.unix')
         assert(socket, 'your build of LuaSocket does not support UNIX domain sockets')
     else
         if parameters.scheme then
             local scheme = parameters.scheme
             assert(scheme == 'redis' or scheme == 'tcp', 'invalid scheme: '..scheme)
         end
-        perform_connection, socket = connect_tcp, require('socket').tcp
+        perform_connection, socket = connect_tcp, require('zsocket').tcp
     end
 
     return perform_connection(socket(), parameters)

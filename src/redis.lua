@@ -813,7 +813,7 @@ function redis.connect(...)
         if type(args[1]) == 'table' then
             parameters = args[1]
         else
-            local uri = require('socket.url')
+            local uri = require('zsocket.url')
             parameters = uri.parse(select(1, ...))
             if parameters.scheme then
                 if parameters.query then

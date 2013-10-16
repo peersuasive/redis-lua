@@ -4,7 +4,7 @@
 
 redis-lua is a pure Lua client library for the Redis advanced key-value database.
 
-redis-lua-zmq is a fork or redis-lua to connect to redis with ømq instead of luasocket.
+redis-lua-zmq is a fork of redis-lua to connect to redis with ømq instead of luasocket.
 
 ## Main features ##
 

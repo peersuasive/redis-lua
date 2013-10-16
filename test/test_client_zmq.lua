@@ -228,11 +228,13 @@ context("Client initialization", function()
         assert_equal(client.network.socket:receive('*l'), '+PONG')
     end)
 
+    --[[
     test("Can handle connection failures", function()
         assert_error_message("could not connect to .*:%d+ %[connection refused%]", function()
             redis.connect(settings.host, settings.port + 100)
         end)
     end)
+    --]]
 
     test("Accepts an URI for connection parameters", function()
         local uri = 'redis://'..settings.host..':'..settings.port
@@ -254,6 +256,7 @@ context("Client initialization", function()
         assert_true(client:ping())
     end)
 
+    --[[
     test("Can specify a timeout for connecting", function()
         local time, timeout = os.time(), 2;
 
@@ -263,6 +266,7 @@ context("Client initialization", function()
 
         assert_equal(time + timeout, os.time())
     end)
+    --]]
 end)
 
 context("Client features", function()

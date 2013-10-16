@@ -12,6 +12,6 @@ zsocket.unix
 ------------------------------------------------------------------------------]]
 
 local socket = require"zsocket"
-local meta = socket.unix()
+local meta = socket.unix
 module(...)
 return meta

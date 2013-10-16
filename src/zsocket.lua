@@ -58,7 +58,7 @@ end
 connect to redis socket and set ID
 --]]
 local function connect(self, addr, port)
-    local addr = port and (self.proto .. "://" .. addr .. ":" .. port) or addr
+    local addr = self.proto .. "://" .. addr .. (port and ":" .. port or "")
     local ok, err = self.socket:connect( addr )
     if not ok then return nil, err end
     self.socket_id = self.socket:getopt(zmq.IDENTITY)

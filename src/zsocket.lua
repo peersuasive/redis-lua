@@ -25,6 +25,12 @@ meta.__index = meta
 --[[ METHODS ]]-----------------------------------------------------------------
 
 --[[--
+mockup
+--]]
+local function setoption()
+end
+
+--[[--
 test redis connection
 --]]
 local function connected(self)
@@ -130,6 +136,7 @@ local function __call(self, proto, ...)
     self.shutdown   = close
     self.context    = zmq.init(1)
     self.settimeout = settimeout
+    self.setoption  = setoption
     self.timeout    = false
     self.socket     = self.context:socket( zmq.STREAM )
     self.url        = ""
